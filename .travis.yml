@@ -1,0 +1,75 @@
+sudo: false
+language: cpp
+
+env:
+  global:
+    # Maintenance note: to move to a new version
+    # of boost, update both BOOST_ROOT and BOOST_URL.
+    # Note that for simplicity, BOOST_ROOT's final
+    # namepart must match the folder name internal
+    # to boost's .tar.gz.
+    - BOOST_ROOT=$HOME/boost_1_65_1
+    - BOOST_URL='https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.tar.gz'
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+      - llvm-toolchain-trusty-5.0
+    packages:
+      - gcc-5
+      - g++-5
+      - python-software-properties
+      - protobuf-compiler
+      - libprotobuf-dev
+      - libssl-dev
+      - libstdc++6
+      - binutils-gold
+      - cmake
+      - lcov
+      - llvm-5.0
+      - clang-5.0
+
+matrix:
+  include:
+
+    - compiler: gcc
+      env: GCC_VER=5 TARGET=debug
+      # - APP_ARGS="--unittest-jobs=2"
+
+    # - compiler: gcc
+    #   env: GCC_VER=5 TARGET=debug.nounity
+
+    # - compiler: gcc
+    #   env: GCC_VER=5 TARGET=coverage PATH=$PWD/cmake/bin:$PATH
+
+    - compiler: clang
+      env: GCC_VER=5 TARGET=debug
+
+    # - compiler: clang
+    #   env: GCC_VER=5 TARGET=debug.nounity
+
+    # The clang cmake builds do not link.
+    # - compiler: clang
+    #   env: GCC_VER=5  TARGET=debug CLANG_VER=3.8 PATH=$PWD/llvm-$LLVM_VERSION/bin:$PWD/cmake/bin:$PATH
+
+    # - compiler: clang
+    #   env: GCC_VER=5 TARGET=debug.nounity CLANG_VER=3.8 PATH=$PWD/llvm-$LLVM_VERSION/bin:$PWD/cmake/bin:$PATH
+
+cache:
+  directories:
+  - $BOOST_ROOT
+
+before_install:
+  - bin/ci/ubuntu/install-dependencies.sh
+
+script:
+  - travis_retry bin/ci/ubuntu/build-and-test.sh
+
+notifications:
+  email:
+    false
+  irc:
+    channels:
+      - "chat.freenode.net#ripple-dev"
+
