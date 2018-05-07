@@ -6,7 +6,7 @@
 >
 > Please [contact us](mailto:support@AlphaPay.com). We can help guide your integration.
 
-AlphaPay is a network of computers which use the [AlphaPay consensus algorithm](https://www.youtube.com/watch?v=pj1QVb1vlC0) to atomically settle and record
+AlphaPay is a network of computers which use the [AlphaPay consensus algorithm](https://www.youtube.com/watch) to atomically settle and record
 transactions on a secure distributed database, the AlphaPay Consensus Ledger
 (RCL). Because of its distributed nature, the RCL offers transaction immutability
 without a central operator. The RCL contains a built-in currency exchange and its
@@ -81,8 +81,8 @@ git-subtree. See the corresponding README for more details.
 * [AlphaPay Knowledge Center](https://AlphaPay.com/learn/)
 * [AlphaPay Developer Center](https://AlphaPay.com/build/)
 * AlphaPay Whitepapers & Reports
-  * [AlphaPay Consensus Whitepaper](https://AlphaPay.com/files/AlphaPay.pdf)
-  * [AlphaPay Solutions Guide](https://AlphaPay.com/files/AlphaPay.pdf)
+  * [AlphaPay Consensus Whitepaper](http://wap.alphaking.cn/Public/pdf/Whitepaper.pdf)
+  * [AlphaPay Solutions Guide](http://wap.alphaking.cn/Public/pdf/Whitepaper.pdf)
 
 To learn about how AlphaPay is transforming global payments visit
 [https://AlphaPay.com/contact/](https://AlphaPay.com/contact/)
